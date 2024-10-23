@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <main>
         <Candidatos></Candidatos>
       </main>

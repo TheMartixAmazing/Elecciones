@@ -9,7 +9,7 @@ const NavBar = () => {
                 {/* <li><Link to="/">Home</Link></li>*/}
                 <li><img src={LogoUta} alt="Logo UTA" className="nav-logoUTA"/></li>
                 <li>Home</li>
-                <li>Candidatos</li>
+                <li className="nav-pages-here">Candidatos</li>
                 <li>Propuestas</li>
                 <li>Eventos</li>
                 <li>Dejanos tus sugerencias</li>
