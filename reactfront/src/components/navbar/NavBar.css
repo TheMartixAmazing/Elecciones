@@ -24,25 +24,30 @@ li {
     cursor: pointer;
 }
 
-.nav-pages li {
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-pages a li{
     font-weight: 400;
     padding: 15px 40px;
     transition: .2s background-color;
 }
 
-.nav-pages li:not(:first-child):hover {
+.nav-pages a li:hover {
     background-color: rgb(61, 61, 61);
     border-bottom: white 2px solid;
 }
 
-.nav-pages li:first-child {
+.nav-pages > li:first-child {
     padding: 0 30px;
     cursor: inherit;
 }
 
 .nav-login button {
     font-weight: bold;
-    color: white;
+    color: inherit;
     background-color: transparent;
     padding: 20px 30px;
     border: none;
@@ -66,7 +71,7 @@ li {
     height: 50px;
 }
 
-.nav-pages-here {
+.nav-page-active li {
     background-color: rgb(61, 61, 61);
     border-bottom: white 2px solid;
 }

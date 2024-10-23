@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import './NavBar.css'
 import LogoUta from '../../assets/logouta.svg'
 
@@ -6,17 +6,28 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <ul className="nav-pages">
-                {/* <li><Link to="/">Home</Link></li>*/}
-                <li><img src={LogoUta} alt="Logo UTA" className="nav-logoUTA"/></li>
-                <li>Home</li>
-                <li className="nav-pages-here">Candidatos</li>
-                <li>Propuestas</li>
-                <li>Eventos</li>
-                <li>Dejanos tus sugerencias</li>
+                <li><img src={LogoUta} alt="Logo UTA" className="nav-logoUTA" /></li>
+                <NavLink to={'/'} className={({isActive}) => isActive ? 'nav-page-active' : ''}>
+                    <li>Home</li>
+                </NavLink>
+                <NavLink to={'/candidatos'} className={({isActive}) => isActive ? 'nav-page-active' : ''}>
+                    <li>Candidatos</li>
+                </NavLink>
+                <NavLink to={'/propuestas'} className={({isActive}) => isActive ? 'nav-page-active' : ''}>
+                    <li>Propuestas</li>
+                </NavLink>
+                <NavLink to={'/eventos'} className={({isActive}) => isActive ? 'nav-page-active' : ''}>
+                    <li>Eventos</li>
+                </NavLink>
+                <NavLink to={'/sugerencias'} className={({isActive}) => isActive ? 'nav-page-active' : ''}>
+                    <li>Dejanos tus sugerencias</li>
+                </NavLink>
             </ul>
             <div className="nav-separator" />
             <div className="nav-login">
-                <button>Iniciar Sesion</button>
+                <Link to={'/login'}>
+                    <button>Iniciar Sesion</button>
+                </Link>
             </div>
         </nav>
     )
