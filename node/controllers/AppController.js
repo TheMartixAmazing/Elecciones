@@ -8,3 +8,12 @@ export const getAllUsers = async (req, res) => {
         res.json({ message: error.message})
     }
 }
+
+export const createUser = async (req, res) => {
+    try {
+        await AppModel.create(req)
+        res.json({message: 'Usuario creado' + req})
+    } catch (error) {
+        res.json({ message: error.message})        
+    }
+}

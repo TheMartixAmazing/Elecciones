@@ -1,0 +1,76 @@
+:root {
+    --border-login: 1px solid rgb(172, 172, 172);
+    --border-input: 1px solid #000;
+}
+
+.login-section {
+    display: grid;
+    place-content: center;
+}
+
+.login {
+    background-color: white;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 0 22% 30px;
+    width: 40vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h1 {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login-form-field input {
+    background-color: transparent;
+    border-radius: 4px;
+    border: var(--border-input);
+    padding: 10px;
+}
+
+.login-form-field label {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.login-form-submit {
+    cursor: pointer;
+    color: white;
+    border-radius: 15px;
+    background-color: black;
+    border: none;
+    padding: 15px 25px;
+    transition: .3s background-color;
+}
+
+.login-form-submit:hover {
+    background-color: #333;
+}
+
+.login-toRegister {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-toRegister a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.login-toRegister a:hover {
+    text-decoration: underline;
+}
