@@ -1,0 +1,10 @@
+@import './_auth.css';
+@import './_candidatos.css';
+
+main {
+    margin-top: 15vh;
+}
+
+button {
+    cursor: pointer;
+}

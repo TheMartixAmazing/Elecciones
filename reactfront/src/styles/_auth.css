@@ -3,49 +3,49 @@
     --border-input: 1px solid #000;
 }
 
-.login-section {
+.form-container {
     display: grid;
     place-content: center;
 }
 
-.login {
+.form-container .cont {
     background-color: white;
     margin-top: 40px;
     border-radius: 10px;
     padding: 0 22% 30px;
     width: 40vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 200px  rgb(255, 255, 255);
 }
 
-.login h1 {
+.cont h1 {
     text-align: center;
 }
 
-.login-form {
+.cont-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.login-form-field {
+.cont-form-field {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.login-form-field input {
+.cont-form-field input {
     background-color: transparent;
     border-radius: 4px;
     border: var(--border-input);
     padding: 10px;
 }
 
-.login-form-field label {
+.cont-form-field label {
     font-size: 0.8rem;
     font-weight: bold;
 }
 
-.login-form-submit {
+.cont-form-submit {
     cursor: pointer;
     color: white;
     border-radius: 15px;
@@ -55,22 +55,36 @@
     transition: .3s background-color;
 }
 
-.login-form-submit:hover {
+.cont-form-submit:hover {
     background-color: #333;
 }
 
-.login-toRegister {
+.cont-link {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
 }
 
-.login-toRegister a {
+.cont-link a {
     font-weight: bold;
     text-decoration: underline;
 }
 
-.login-toRegister a:hover {
+.cont-link a:hover {
     text-decoration: underline;
+}
+
+.cont-error {
+    display: none;
+    gap: 10px;
+    align-items: center;
+    background-color: red;
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.cont-error.show {
+    display: flex;
 }

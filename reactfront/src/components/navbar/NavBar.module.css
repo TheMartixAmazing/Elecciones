@@ -13,7 +13,7 @@
     padding-right: 5rem;
 }
 
-.nav-pages {
+.navPages {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -29,23 +29,23 @@ a {
     color: inherit;
 }
 
-.nav-pages a li{
+.navPages a li {
     font-weight: 400;
     padding: 15px 40px;
     transition: .2s background-color;
 }
 
-.nav-pages a li:hover {
+.navPages a li:hover {
     background-color: rgb(61, 61, 61);
     border-bottom: white 2px solid;
 }
 
-.nav-pages > li:first-child {
+.navPages > li:first-child {
     padding: 0 30px;
     cursor: inherit;
 }
 
-.nav-login button {
+.navLogin button {
     font-weight: bold;
     color: inherit;
     background-color: transparent;
@@ -55,23 +55,23 @@ a {
     transition: .3s background-color, .3s color;
 }
 
-.nav-login button:hover {
+.navLogin button:hover {
     background-color: white;
     color: black;
 }
 
-.nav-separator {
+.navSeparator {
     width: 2px;
     height: 50px;
     background-color: white;
 }
 
-.nav-logoUTA {
+.navLogoUTA {
     width: 50px;
     height: 50px;
 }
 
-.nav-page-active li {
+.navPageActive li {
     background-color: rgb(61, 61, 61);
     border-bottom: white 2px solid;
 }

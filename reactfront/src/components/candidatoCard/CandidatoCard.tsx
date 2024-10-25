@@ -1,44 +1,46 @@
 import { useState } from 'react'
-import './Card.css'
+import clsx from 'clsx';
+import styles from './Card.module.css'
 
 interface Candidato {
     name: string,
     cargo: string
     experiencia: string
-    isChoose?: boolean
+    isChoose?: boolean | false
 }
 
-const Card = (candidato: Candidato) => {
-    const [isChoose, setIsChoose] = useState(candidato.isChoose)
+const Card = ({name, cargo, experiencia, isChoose}: Candidato) => {
+    const [chosen, setChosen] = useState<boolean>(isChoose || false)
 
-    const buttonText: string = isChoose 
-        ? "Elegido" 
+    const buttonText: string = chosen
+        ? "Elegido"
         : "Votar"
-    const buttonClass: string = isChoose 
-        ? "card-button isChoose" 
-        : "card-button"
-
-    const imgSource = "src/assets/react.svg"
+        
+    const buttonClass: string = clsx(styles.cardButton, {
+        [styles.isChoose] : chosen
+    })
 
     const handleClick = () => {
-        setIsChoose(!isChoose)
+        setChosen(!chosen)
     }
 
+    const imgSource = 'src/assets/react.svg'
+
     return (
-        <section className='card'>
-            <header className='card-header'>
-                <img className='card-img' src={imgSource} alt="Imagen del candidato" />
-                <div className="card-header-info">
-                    <h3>{candidato.name}</h3>
-                    <span className='card-info-exp'>{candidato.experiencia} años de experiencia</span>
-                    <p className='card-info-cargo'>Cargo: {candidato.cargo}</p>
+        <section className={styles.card}>
+            <header className={styles.cardHeader}>
+                <img className={styles.cardImg} src={imgSource} alt="Imagen del candidato" />
+                <div className={styles.cardHeaderInfo}>
+                    <h3>{name}</h3>
+                    <span className={styles.cardInfoExp}>{experiencia} años de experiencia</span>
+                    <p className={styles.cardInfoCargo}>Cargo: {cargo}</p>
                 </div>
             </header>
 
             <aside>
                 <button onClick={handleClick} className={buttonClass}>
-                    <span className='card-buttonText'>{buttonText}</span>
-                    <span className='card-buttonChangeVote'>Cambiar voto</span>
+                    <span className={styles.cardButtonText}>{buttonText}</span>
+                    <span className={styles.cardButtonChangeVote}>Cambiar voto</span>
                 </button>
             </aside>
         </section>
