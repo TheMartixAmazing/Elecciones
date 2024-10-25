@@ -3,29 +3,41 @@ import express from 'express';
 import cors from 'cors';
 import db from './database/db.js';
 import userRouter from './routes/router.js';
-
+import propuestaRouter from './routes/propuestaRouter.js';
 
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// Configuración de CORS más específica
+app.use(cors({
+    origin: 'http://localhost:5173', // Puerto donde corre tu app de React+Vite
+    credentials: true
+}));
+
 app.use(express.json());
+
+// Rutas
 app.use('/users', userRouter);
+app.use('/propuestas', propuestaRouter);
 
-db.authenticate()
-    .then(() => {
-        console.log('Coneccion establecida con la base de datos');
-    })
-    .catch(err => {
-        console.error('No se pudo conectar a la base de datos:' + err);
+// Test route
+app.get('/test', (req, res) => {
+    res.json({ message: 'Backend is running' });
+});
+
+const PORT = process.env.PORT || 8000;
+
+try {
+    await db.authenticate();
+    console.log('Conexión establecida con la base de datos');
+
+    // Sincronizar modelos con la base de datos
+    await db.sync();
+    console.log('Modelos sincronizados con la base de datos');
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
     });
-
-const PORT = process.env.PORT;
-
-app.get('/', (req, res) => {
-    res.send('Hola yo');
-})
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+} catch (error) {
+    console.error('Error al iniciar el servidor:', error);
+}
