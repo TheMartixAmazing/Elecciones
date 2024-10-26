@@ -75,16 +75,20 @@
     text-decoration: underline;
 }
 
-.cont-error {
+.cont-message {
     display: none;
     gap: 10px;
     align-items: center;
-    background-color: red;
+    background-color: rgb(58, 211, 53);
     color: white;
     padding: 15px 20px;
     margin-bottom: 20px;
 }
 
-.cont-error.show {
+.cont-message-error {
+    background-color: red;
+}
+
+.cont-message.show {
     display: flex;
 }

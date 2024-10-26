@@ -2,7 +2,11 @@ import { Link, NavLink } from "react-router-dom"
 import LogoUta from '../../assets/logouta.svg'
 import styles from './NavBar.module.css'
 
-const NavBar = () => {
+interface UserId {
+    userId?: string
+}
+
+const NavBar = ({ userId }: UserId) => {
     return (
         <nav className={styles.nav}>
             <ul className={styles.navPages}>
@@ -25,9 +29,16 @@ const NavBar = () => {
             </ul>
             <div className={styles.navSeparator} />
             <div className={styles.navLogin}>
-                <Link to={'/login'}>
-                    <button>Iniciar Sesion</button>
-                </Link>
+                {
+                    userId ? <Link to={`/user/${userId}`}>
+                        <button>Cuenta</button>
+                    </Link>
+                        : <Link to={'/login/new'}>
+                        <button>Iniciar sesión</button>
+                    </Link> 
+                }
+
+
             </div>
         </nav>
     )

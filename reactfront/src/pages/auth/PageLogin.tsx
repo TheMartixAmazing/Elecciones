@@ -1,16 +1,29 @@
-import { FormEvent, useState } from 'react'
-import { Link } from "react-router-dom"
+import { FormEvent, useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useField } from '../../util/hooks/useField';
 import { loginUser } from '../../util/auth';
+
 import clsx from 'clsx';
 
-const Login = () => {
+interface OnLogin {
+    handleOnLogin: Function
+}
+
+const Login = ({ handleOnLogin }: OnLogin) => {
+    const { state } = useParams()
     const [failLogin, setfailLogin] = useState(false)
     const userCredential = useField('email')
     const password = useField('password')
+    const navigateTo = useNavigate()
+    const newRegister = state == 'success'
 
-    const classError = clsx('cont-error', {
-        'show': failLogin
+    useEffect(() => {
+        console.log(state)
+    })
+
+    const classError = clsx('cont-message', {
+        'show': failLogin || newRegister,
+        'cont-message-error': failLogin
     })
 
     const handleSubmit = (e: FormEvent) => {
@@ -19,12 +32,17 @@ const Login = () => {
     }
 
     const handleLogin = async () => {
-        const failLogin = ! await loginUser({
+        const failed = ! await loginUser({
             credential: userCredential.value,
             password: password.value
         })
 
-        setfailLogin(failLogin)
+        setfailLogin(failed)
+
+        if (!failed) {
+            navigateTo(`/user/5`)
+            handleOnLogin('3')
+        }
     }
 
     return (
@@ -36,7 +54,10 @@ const Login = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
                     </svg>
-                    <span>Credenciales incorrectas.</span>
+                    <span>{
+                        newRegister ? "Registrado correctamente. Inicia sesión"
+                        : "Credenciales incorrectas."
+                    }</span>
                 </div>
 
                 <form onSubmit={handleSubmit} className='cont-form'>

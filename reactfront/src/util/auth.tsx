@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const URI = "http://localhost:8000/users/login";
+const URI = "http://localhost:8000/users/";
 
-interface User {
+interface UserToLogin {
     credential: string
     password: string
 }
@@ -12,7 +12,7 @@ const checkEmail = (email: string) => {
     return reg.test(email)
 }
 
-const loginUser = async ({ credential, password }: User) => {
+const loginUser = async ({ credential, password }: UserToLogin) => {
     const userData = {
         userName: '',
         email: '',
@@ -27,10 +27,27 @@ const loginUser = async ({ credential, password }: User) => {
         userData.userName = credential
     }
 
-    const res = await axios.post(URI, userData)
+    const res = await axios.post(`${URI}login`, userData)
+    
+    return res.data.success
+}
 
+interface UserToRegister {
+    nom_use: string,
+    cor_use: string,
+    pas_use: string,
+}
+
+const createNewUser = async ({ nom_use, cor_use, pas_use }: UserToRegister) => {
+    const newUserData = {
+        nom_use: nom_use,
+        cor_use: cor_use,
+        pas_use: pas_use,
+    };
+
+    const res = await axios.post(`${URI}`, newUserData)
     return res.data.success
 }
 
 
-export { loginUser }
+export { loginUser , createNewUser }
