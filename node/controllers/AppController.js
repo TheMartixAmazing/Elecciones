@@ -22,9 +22,14 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
     try {
         const user = await AppModel.findByPk(req.params.id)
-        res.json(user)
+
+        if(!user) {
+            throw new Error("Usuario no encontrado");
+        }
+
+        res.json({ success: true, user: user, message: "Usuario encontrado"})
     } catch (error) {
-        res.json({ message: "Error: " + error.message })
+        res.json({ success: false, user: null, message: "Error: " + error.message })
     }
 }
 
@@ -35,6 +40,10 @@ const getUserByEmailAndPassword = async (req, res) => {
         const whereClause = {};
         whereClause.pas_use = password;
 
+        if (!userName && !email ) {
+            throw new Error("Se debe enviar un correo o un nombre de usuario");
+        }
+
         if (email) whereClause.cor_use = email;
         if (userName) whereClause.nom_use = userName;
         
@@ -43,13 +52,13 @@ const getUserByEmailAndPassword = async (req, res) => {
         });
 
         if (!user) {
-            res.json({ error: "No se encontró el usuario", success: false });
+            throw new Error("Usuario no encontrado");
             return;
         }
 
-        res.json({ success: true, user });
+        res.json({ success: true, user: user, message: "Usuario encontrado" });
     } catch (error) {
-        res.json({ message: "Error: " + error.message })
+        res.json({ success: false, user: null, message: "Error: " + error.message })
     }
 }
 

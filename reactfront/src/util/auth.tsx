@@ -2,6 +2,11 @@ import axios from "axios";
 
 const URI = "http://localhost:8000/users/";
 
+interface APIResponse<T = any> {
+    success: boolean;
+    data: T | null;
+}
+
 interface UserToLogin {
     credential: string
     password: string
@@ -12,7 +17,7 @@ const checkEmail = (email: string) => {
     return reg.test(email)
 }
 
-const loginUser = async ({ credential, password }: UserToLogin) => {
+const loginUser = async ({ credential, password }: UserToLogin): Promise<APIResponse<{ id_use: number }>> => {
     const userData = {
         userName: '',
         email: '',
@@ -27,10 +32,31 @@ const loginUser = async ({ credential, password }: UserToLogin) => {
         userData.userName = credential
     }
 
-    const res = await axios.post(`${URI}login`, userData)
-    
-    return res.data.success
+    try {
+        const { data } = await axios.post<{
+            success: boolean,
+            message: string
+            user: {id_use: number}
+        }>(`${URI}login`, userData)
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        return {
+            success: data.success,
+            data: data.user
+        }
+    } catch (error) {
+        console.error(error);
+        return {
+            success: false,
+            data: null
+        };
+    }
 }
+
+// Registro del usuario
 
 interface UserToRegister {
     nom_use: string,
@@ -38,16 +64,33 @@ interface UserToRegister {
     pas_use: string,
 }
 
-const createNewUser = async ({ nom_use, cor_use, pas_use }: UserToRegister) => {
+const createNewUser = async ({ nom_use, cor_use, pas_use }: UserToRegister): Promise<{ success: boolean }> => {
     const newUserData = {
         nom_use: nom_use,
         cor_use: cor_use,
         pas_use: pas_use,
     };
 
-    const res = await axios.post(`${URI}`, newUserData)
-    return res.data.success
+    try {
+        const res = await axios.post<{
+            success: boolean,
+            message: string
+        }>(`${URI}`, newUserData)
+
+        if (!res.data.success) {
+            throw new Error(res.data.message);
+        }
+
+        return {
+            success: res.data.success
+        }
+    } catch (error) {
+        console.error(error)
+        return {
+            success: false
+        }
+    }
 }
 
 
-export { loginUser , createNewUser }
+export { loginUser, createNewUser }

@@ -11,15 +11,14 @@ interface OnLogin {
 
 const Login = ({ handleOnLogin }: OnLogin) => {
     const { state } = useParams()
-    const [failLogin, setfailLogin] = useState(false)
-    const userCredential = useField('email')
-    const password = useField('password')
-    const navigateTo = useNavigate()
-    const newRegister = state == 'success'
+    const newRegister = state === 'success'
 
-    useEffect(() => {
-        console.log(state)
-    })
+    const [failLogin, setfailLogin] = useState(false)
+
+    const userCredential = useField('text')
+    const password = useField('password')
+    
+    const navigateTo = useNavigate()
 
     const classError = clsx('cont-message', {
         'show': failLogin || newRegister,
@@ -32,16 +31,16 @@ const Login = ({ handleOnLogin }: OnLogin) => {
     }
 
     const handleLogin = async () => {
-        const failed = ! await loginUser({
+        const { success, data } = await loginUser({
             credential: userCredential.value,
             password: password.value
         })
 
-        setfailLogin(failed)
+        setfailLogin(!success)
 
-        if (!failed) {
-            navigateTo(`/user/5`)
-            handleOnLogin('3')
+        if (success) {
+            navigateTo(`/user/${data?.id_use}`)
+            handleOnLogin(data?.id_use)
         }
     }
 
@@ -56,18 +55,17 @@ const Login = ({ handleOnLogin }: OnLogin) => {
                     </svg>
                     <span>{
                         newRegister ? "Registrado correctamente. Inicia sesión"
-                        : "Credenciales incorrectas."
+                            : "Credenciales incorrectas."
                     }</span>
                 </div>
 
                 <form onSubmit={handleSubmit} className='cont-form'>
                     <div className='cont-form-field'>
-                        <label htmlFor='email'>Email o nombre de usuario</label>
+                        <label htmlFor='credential'>Email o nombre de usuario</label>
                         <input
-                            {...Credential}
-                            name='email'
-                            id='email'
-                            required
+                            {...userCredential}
+                            name='credential'
+                            id='credential'
                         />
                     </div>
 
@@ -77,8 +75,6 @@ const Login = ({ handleOnLogin }: OnLogin) => {
                             {...password}
                             name='password'
                             id='password'
-                            required
-                            minLength={5}
                         />
                     </div>
 

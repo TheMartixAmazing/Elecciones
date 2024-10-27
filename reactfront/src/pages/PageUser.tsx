@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
 const URI = "http://localhost:8000/users/";
@@ -12,14 +12,23 @@ interface User {
 const UserPage = () => {
     const { userId } = useParams()
     const [user, setUser] = useState<User | null>(null)
+    const navigateTo = useNavigate()
 
     useEffect(() => {
         getUser()
     }, [])
 
     const getUser = async () => {
-        const user = await axios.get(`${URI}${userId}`)
-        setUser(user.data)
+        const { data } = await axios.get<{
+            success: boolean,
+            user: User
+        }>(`${URI}${userId}`)
+        
+        if (!data.success) {
+            navigateTo('/login/new')
+        }
+
+        setUser(data.user)
     }
 
     return (

@@ -6,9 +6,11 @@ import clsx from "clsx";
 
 const Register = () => {
     const [failRegister, setfailRegister] = useState(false)
+
     const userName = useField('text')
     const email = useField('email')
     const password = useField('password')
+
     const navigateTo = useNavigate()
 
     const classError = clsx('cont-message', {
@@ -18,15 +20,15 @@ const Register = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
         
-        const failed = ! await createNewUser({
+        const { success } = await createNewUser({
             nom_use: userName.value,
             cor_use: email.value,
-            pas_use: password.value,
+            pas_use: password.value
         })
 
-        setfailRegister(failed)
+        setfailRegister(!success)
 
-        if (!failed) {
+        if (success) {
             navigateTo(`/login/success`)
         }
 
@@ -52,6 +54,7 @@ const Register = () => {
                             name='name'
                             id='name'
                             required
+                            minLength={5}
                         />
                     </div>
 
@@ -72,6 +75,7 @@ const Register = () => {
                             name='password'
                             id='password'
                             required
+                            min={5}
                         />
                     </div>
 
