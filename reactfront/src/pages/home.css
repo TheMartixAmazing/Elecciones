@@ -1,0 +1,47 @@
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .candidate-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .candidate-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .candidate-item h2 {
+    margin-top: 0;
+  }
+  
+  .candidate-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .team-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  
+  .team-member {
+    margin-bottom: 5px;
+  }
+  
