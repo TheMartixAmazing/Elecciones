@@ -1,65 +1,107 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 import './home.css';
 
 
-interface miembrosdelEquipo{
-  nombre : string;
-  rol : string;
-}
 
 interface Candidates {
   id: number;
   name: string;
-  position: string;
-  description: string;
+   description: string;
   imagenUrl: string;
-  team : miembrosdelEquipo[];
+ 
 }
 
 const candidates: Candidates[] = [
-  { id: 1, name: 'Mary Carmen', position: 'Candidata a Decana', description: 'Union y Futuro universitario.',
-    imagenUrl:'https://www.google.com/search?sca_esv=f9749d82eb8de094&sxsrf=ADLYWIJ036TtMs3Nsn_UjIbVoypHVt7PkQ:1730137456211&q=sara+camacho+uta&udm=2&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgWizR0-0aFOH11Sb5tlNhd3zC4y7ZXTSrvvSBSNjw8fVX3G3tS3bGsqQeBBxb6Hy8xx-hbch2JHQRb-eFwOw0twQY_IF44mmAPmBQXSZdFWfaNCf1LhMF5BSIk7Fl0epINmQRkDpVCUYadQNCTc7jAs8M8WMxkFFQroIR7fbVWXuayZ36&sa=X&ved=2ahUKEwjxs_Wj0LGJAxUJ38kDHS2vNi0QtKgLegQIExAB&biw=1366&bih=641&dpr=1#vhid=ZfATvifED51fFM&vssid=mosaic'
-     ,team :[
-    {nombre: "Juan Paredes", rol :"Vicerrector de Investigación"},
-    {nombre :'Vinicio Mejía', rol : 'Vicerrector Académico'},
-    {nombre :'Sandra Villacis', rol : 'Vicerrector Administrativo'},
-  ] },
-  { id: 2, name: 'Sara Camacho', position: 'Candidata a Decana', description: 'Juntos por la UTA' ,
-    imagenUrl:'https://www.google.com/search?sca_esv=f9749d82eb8de094&sxsrf=ADLYWIJ036TtMs3Nsn_UjIbVoypHVt7PkQ:1730137456211&q=sara+camacho+uta&udm=2&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgWizR0-0aFOH11Sb5tlNhd3zC4y7ZXTSrvvSBSNjw8fVX3G3tS3bGsqQeBBxb6Hy8xx-hbch2JHQRb-eFwOw0twQY_IF44mmAPmBQXSZdFWfaNCf1LhMF5BSIk7Fl0epINmQRkDpVCUYadQNCTc7jAs8M8WMxkFFQroIR7fbVWXuayZ36&sa=X&ved=2ahUKEwjxs_Wj0LGJAxUJ38kDHS2vNi0QtKgLegQIExAB&biw=1366&bih=641&dpr=1#vhid=ZfATvifED51fFM&vssid=mosaic',
-    team :[
-      {nombre :'Santiago López', rol : 'Vicerrector Académico'},
-      {nombre :'Alberto Ríos', rol : 'Vicerrector de Investigación'},
-      {nombre :'Fernanda Flores', rol : 'Vicerrector Administrativa'},
-      
-    ] 
-
+  {
+    id: 1,
+    name: 'Mary Cruz',
+    description: '"Union y Futuro universitario"',
+    imagenUrl: 'https://marycruzuta.com/assets/images/Mary.JPG',
+    
   },
- 
+  
 ];
 
+const candidates2: Candidates[] = [
+  {
+    id: 2,
+    name: 'Sara Camacho',
+    description: '"Juntos por la UTA"',
+    imagenUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIoG11PZrPHsSn_ejJ5L6UbrD479KVL8AukumvaQoZZKaElbY9htIKKSGfht2MWFLPIkW9ugYva19sQ7wsnM_uZjkn-x6SXSQjH3pyySu_TMleLtTS_H_QB15Y279Xf9Tp8oU9WVmH30Q/s1600/agosto+16+del+011+230.jpg',
+    
+  }
+];
+
+
+
 const Home: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://www.tiktok.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+  
   return (
     <div className="home-container">
-      <h1>¿Conoces a los futuros representantes de la UTA?</h1>
-      <ul className="candidate-list">
-        {candidates.map((candidate) => (
-          <li key={candidate.id} className="candidate-item">
-            <img src={candidate.imagenUrl} alt={candidate.name} className="candidate-image" />
-            <h2>{candidate.name}</h2>
-            <p><strong>Cargo al cual aplica:</strong> {candidate.position}</p>
-            <p>{candidate.description}</p>
-            <h3>Equipo de Trabajo</h3>
-            <ul className="team-list">
-              {candidate.team.map((member, index) => (
-                <li key={index} className="team-member">
-                  <strong>{member.nombre}</strong>: {member.rol}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <h1 className="custom-header">¿Conoces a los futuros representantes de la UTA?</h1>
+      <h2 className='sub2'>Entérate más sobre ellos</h2>
+      <div className="split-container">
+        
+        {/* Contenedor de la columna izquierda */}
+<div className="column">
+  {/* Contenedor de imágenes en fila */}
+  <div className="image-row">
+    <img src="https://marycruzuta.com/assets/images/logo.png" alt="Logo Mary Cruz" className="side-image" />
+    
+    <div className="candidate">
+      <img src={candidates[0].imagenUrl} alt={candidates[0].name} className="candidate1-image central-image" />
+      <h2>{candidates[0].name}</h2>
+      <p><strong>Candidata a Decana</strong> </p>
+      <p>{candidates[0].description}</p>
+    </div>
+    
+    <img src="https://gitlab.com/alexjavier/img_mc/-/raw/main/unidos.PNG" alt="Logo Unidos" className="side-image" />
+  </div>
+
+  <div className="video-container">
+    <h2>Conoce a Mary Cruz</h2>
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/3NnogU08nK4"
+      title="Video de YouTube"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+
+
+        {/* Columna derecha */}
+        <div className="column">
+        
+          <div className="candidate">
+            <img src={candidates2[0].imagenUrl} alt={candidates2[0].name} className="candidate-image" />
+            <h2>{candidates2[0].name}</h2>
+            <p><strong>Candidata a Decana</strong> </p>
+            <p>{candidates2[0].description}</p>
+          </div>
+          <div className="tiktok-container" dangerouslySetInnerHTML={{ __html: `
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@saracamacho.estrada/video/7430528760941759750" data-video-id="7430528760941759750" style="max-width: 605px; min-width: 325px;">
+              <section>
+                <a target="_blank" title="@saracamacho.estrada" href="https://www.tiktok.com/@saracamacho.estrada?refer=embed">@saracamacho.estrada</a> ¡Vamos juntos por el cambio! 💪💪 Ha llegado la hora de devolverle a nuestra universidad el prestigio que se merece y llevar a la UTA hacia una nueva era de transformación y oportunidades. 💙💙💙 Vamos con todo, sin miedo. Juntos por el cambio, juntos por la UTA, juntos por el futuro de nuestra provincia.
+              </section>
+            </blockquote>
+          ` }}></div>
+        </div>
+        
+      </div>
     </div>
   );
 };
+
+
 export default Home;
+

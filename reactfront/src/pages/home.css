@@ -1,47 +1,81 @@
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .candidate-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .candidate-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .candidate-item h2 {
-    margin-top: 0;
-  }
-  
-  .candidate-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  .team-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-  }
-  
-  .team-member {
-    margin-bottom: 5px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.custom-header {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.sub2 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.split-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.candidate {
+  margin: 20px 0;
+}
+
+.candidate-image {
+  width: 300px;
+  height: 250px;
+  margin-bottom: 10px;
+}
+
+.candidate1-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.video-container, .tiktok-container {
+  margin-top: 20px;
+}
+
+.side-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.tiktok-container blockquote {
+  margin: 0 auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las imágenes */
+  margin-bottom: 20px; /* Espacio debajo de la fila */
+}
+
+.side-image {
+  width: 100px; /* Ajusta el tamaño de las imágenes laterales */
+  height: auto;
+}
+
+.central-image {
+  width: 200px; /* Ajusta el tamaño de la imagen central */
+  height: auto;
+}
+
