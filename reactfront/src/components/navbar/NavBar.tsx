@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom"
-import LogoUta from '../../assets/logouta.svg'
+import LogoUta from '/assets/logouta.svg'
 import styles from './NavBar.module.css'
 
 interface UserId {
@@ -31,11 +31,13 @@ const NavBar = ({ userId }: UserId) => {
             <div className={styles.navLogin}>
                 {
                     userId ? <Link to={`/user/${userId}`}>
-                        <button>Cuenta</button>
+                        <button>
+                            Perfil
+                        </button>
                     </Link>
                         : <Link to={'/login/new'}>
-                        <button>Iniciar sesión</button>
-                    </Link> 
+                            <button>Iniciar sesión</button>
+                        </Link>
                 }
 
 

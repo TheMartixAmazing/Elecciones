@@ -13,7 +13,7 @@ const Register = () => {
 
     const navigateTo = useNavigate()
 
-    const classError = clsx('cont-message', {
+    const classError = clsx(['cont-message', 'cont-message-error'], {
         'show': failRegister
     })
 
@@ -82,7 +82,7 @@ const Register = () => {
                     <input className='cont-form-submit' type="submit" value="Registrarse" />
                 </form>
                 <div className="cont-link">
-                    <span>¿Ya tienes una cuenta?</span> <Link to={'/login'}>Inicia sesión</Link>
+                    <span>¿Ya tienes una cuenta?</span> <Link to={'/login/new'}>Inicia sesión</Link>
                 </div>
             </div>
 

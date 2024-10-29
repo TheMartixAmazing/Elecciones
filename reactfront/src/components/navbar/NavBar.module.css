@@ -1,9 +1,13 @@
+:root {
+    --height: 15vh
+}
+
 .nav {
     background-color: #333;
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 15vh;
+    height: var(--height);
     z-index: 1000;
     display: flex;
     color: white;
