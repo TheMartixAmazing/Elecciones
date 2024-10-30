@@ -65,17 +65,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Espacio entre las imágenes */
-  margin-bottom: 20px; /* Espacio debajo de la fila */
+  gap: 20px; 
+  margin-bottom: 20px; 
 }
 
 .side-image {
-  width: 100px; /* Ajusta el tamaño de las imágenes laterales */
+  width: 100px; 
   height: auto;
 }
 
 .central-image {
-  width: 200px; /* Ajusta el tamaño de la imagen central */
+  width: 200px;
   height: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-media {
+  width: 100%;
+  max-width: 340px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
