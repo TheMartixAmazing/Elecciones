@@ -10,7 +10,7 @@ interface PubProFilterProps {
 const PubProFilter: React.FC<PubProFilterProps> = ({ pubProOptions, selectedPubPro, onPubProChange }) => {
     return (
         <div className="pub-pro-filter mb-3">
-            <label htmlFor="pubProFilter">Filtrar por destinatario de la propuesta (pub_pro):</label>
+            <label htmlFor="pubProFilter">Filtrar por destinatario de la propuesta:</label>
             <select
                 id="pubProFilter"
                 className="form-select"

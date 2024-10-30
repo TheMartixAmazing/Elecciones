@@ -27,9 +27,7 @@ const NewsCard = ({
     });
 
     const handleRead = () => {
-        if (markedRead) return;
-
-        setMarkedRead(true);
+        setMarkedRead(!markedRead);
         handleMarkAsRead(newsItem.title);
     };
 
