@@ -62,7 +62,7 @@ const Card = ({
             <header className={styles.cardHeader}>
                 <img src={candidato.img} className={styles.cardImg} alt='Imagen del candidato' />
                 <div className={styles.cardInfo}>
-                    <h2>{candidato.name}</h2>
+                    <h2 className={styles.cardInfoH2}>{candidato.name}</h2>
                     <div className={styles.cardDelegadoCargo}>
                         <p><strong>{candidato.cargo}</strong></p>
                     </div>

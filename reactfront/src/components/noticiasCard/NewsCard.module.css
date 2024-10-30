@@ -46,3 +46,15 @@
     font-size: 0.9rem;
     color: #555;
 }
+
+.cardButton {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.cardButton.isRead {
+    background-color: rgb(75, 75, 223);
+}

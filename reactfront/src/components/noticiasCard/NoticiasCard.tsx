@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import styles from './NewsCard.module.css';
 
@@ -22,7 +21,6 @@ const NewsCard = ({
     handleMarkAsRead,
 }: NewsCardProps) => {
     const [markedRead, setMarkedRead] = useState(isRead);
-    const navigateTo = useNavigate();
 
     const buttonClass = clsx(styles.cardButton, {
         [styles.isRead]: markedRead,
