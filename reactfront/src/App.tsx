@@ -5,8 +5,10 @@ import { Login } from './pages/auth/PageLogin'
 import { Register } from './pages/auth/PageRegister'
 import { UserPage } from './pages/PageUser'
 import { useEffect, useState } from 'react'
-import './styles/app.css'
 import CompShowPropuestas from './pages/propuestas/Propuestas'
+import Home from './pages/home'
+
+import './styles/app.css'
 
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/user/" element={<UserPage handleOnLogout={onLogout} />} />
                     <Route path="/propuestas" element={<CompShowPropuestas />} />
+                    <Route path="/home" element={<Home />} />
                 </Routes>
             </main>
         </>
