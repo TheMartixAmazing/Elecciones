@@ -10,6 +10,7 @@ import CompShowPropuestas from './pages/propuestas/Propuestas'
 import { Home } from './pages/HomePage'
 
 import './styles/app.css'
+import { NewsPage } from './pages/NewsPage'
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/propuestas" element={<CompShowPropuestas />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/sugerencias" element={<SugerenciaForm />} />
+                    <Route path="/eventos/" element={<NewsPage/>} />
                 </Routes>
             </main>
         </>

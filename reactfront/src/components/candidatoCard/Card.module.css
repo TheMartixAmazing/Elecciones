@@ -9,7 +9,7 @@
 .card {
     display: grid;
     grid-template-areas: 'header aside aside'
-    'cont aside aside';
+        'cont aside aside';
     grid-template-columns: auto auto;
     height: calc(100vh - var(--height));
     row-gap: 20px;
@@ -29,11 +29,6 @@
     grid-template-columns: 32% 1fr;
     align-items: center;
     gap: 20px;
-}
-
-.cardHeader h2 {
-    text-align: center;
-    font-size: 2.5rem;
 }
 
 .cardImg {
@@ -106,6 +101,13 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.cardInfoH2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 0;
 }
 
 .cardButton {
