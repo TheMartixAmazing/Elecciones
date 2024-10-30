@@ -6,7 +6,7 @@ import { loginUser } from '../../util/auth';
 import clsx from 'clsx';
 
 interface OnLogin {
-    handleOnLogin: Function
+    handleOnLogin: (userId: string, vote: string) => void
 }
 
 const Login = ({ handleOnLogin }: OnLogin) => {
@@ -25,6 +25,11 @@ const Login = ({ handleOnLogin }: OnLogin) => {
         'cont-message-error': failLogin
     })
 
+    useEffect(() => {
+        const userId = localStorage.getItem('userId')
+        if (userId) navigateTo(`/user/`)
+    }, [])
+
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
         handleLogin()
@@ -39,8 +44,9 @@ const Login = ({ handleOnLogin }: OnLogin) => {
         setfailLogin(!success)
 
         if (success) {
-            navigateTo(`/user/${data?.id_use}`)
-            handleOnLogin(data?.id_use)
+            const userId = String(data?.id_use)
+            const voteId = String(data?.vot_use)
+            handleOnLogin(userId, voteId)
         }
     }
 

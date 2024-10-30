@@ -20,13 +20,64 @@
 
 .user-vote {
     display: flex;
+    flex-direction: column;
     place-content: center;
+    gap: 20px;
     border-radius: 20px;
-    border: 1px solid rgb(122, 122, 122);
     padding: 50px 150px;
+    border: 1px solid rgb(129, 129, 129);
+}
+
+.user-vote.voted {
+    color: white;
+    padding: 50px 50px;
+    border: none;
 }
 
 .user-vote p {
-    font-style: italic;
-    color: rgb(122, 122, 122);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.user-buttonLogout {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 61);
+    color: white;
+    padding: 10px 20px;
+    transition: .3s background-color;
+}
+
+.user-buttonCard {
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    transition: .3s background-color;
+}
+
+.user-buttonCard:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+.user-buttonLogout:hover {
+    background-color: rgb(78, 78, 78);
+}
+
+.user-vote-card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.user-vote-card p {
+    font-size: 1.5rem;
+}
+
+.user-vote-card img {
+    object-fit: cover;
+    object-position: 50% 10%;
+    width: 100px;
+    border-radius: 5px;
 }

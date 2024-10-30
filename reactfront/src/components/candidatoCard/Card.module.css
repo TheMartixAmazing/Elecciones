@@ -13,7 +13,7 @@
     grid-template-columns: auto auto;
     height: calc(100vh - var(--height));
     row-gap: 20px;
-    column-gap: 20px;
+    column-gap: 40px;
 
     background-attachment: fixed;
     background-position-x: center;
@@ -25,12 +25,14 @@
 
 .cardHeader {
     grid-area: header;
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 32% 1fr;
     align-items: center;
+    gap: 20px;
 }
 
 .cardHeader h2 {
+    text-align: center;
     font-size: 2.5rem;
 }
 
@@ -38,7 +40,7 @@
     object-fit: cover;
     object-position: top;
     height: 200px;
-    width: 31%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -81,12 +83,15 @@
 
 .cardAside {
     grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .cardAside li {
     list-style: disc;
     margin-left: 20px;
-    margin-top: 2px;
+    margin-top: 5px;
     pointer-events: none;
 }
 
@@ -127,6 +132,10 @@
     background-color: rgb(32, 5, 7);
     border: 1px solid rgb(103, 7, 15);
     color: rgb(247, 29, 29);
+}
+
+.cardButton.isLocked {
+    background-color: rgb(32, 5, 7);
 }
 
 .cardButtonChangeVote {

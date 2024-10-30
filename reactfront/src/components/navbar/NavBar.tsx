@@ -30,7 +30,7 @@ const NavBar = ({ userId }: UserId) => {
             <div className={styles.navSeparator} />
             <div className={styles.navLogin}>
                 {
-                    userId ? <Link to={`/user/${userId}`}>
+                    userId ? <Link to={`/user/`}>
                         <button>
                             Perfil
                         </button>

@@ -17,7 +17,7 @@ const checkEmail = (email: string) => {
     return reg.test(email)
 }
 
-const loginUser = async ({ credential, password }: UserToLogin): Promise<APIResponse<{ id_use: number }>> => {
+const loginUser = async ({ credential, password }: UserToLogin): Promise<APIResponse<{ id_use: number, vot_use: number }>> => {
     const userData = {
         userName: '',
         email: '',
@@ -36,7 +36,7 @@ const loginUser = async ({ credential, password }: UserToLogin): Promise<APIResp
         const { data } = await axios.post<{
             success: boolean,
             message: string
-            user: {id_use: number}
+            user: {id_use: number, vot_use: number}
         }>(`${URI}login`, userData)
 
         if (!data.success) {

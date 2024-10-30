@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useField } from "../../util/hooks/useField";
 import { createNewUser } from "../../util/auth";
@@ -16,6 +16,11 @@ const Register = () => {
     const classError = clsx(['cont-message', 'cont-message-error'], {
         'show': failRegister
     })
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId')
+        if (userId) navigateTo(`/user/${userId}`)
+    }, [])
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
