@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './home.css';
 
 interface Candidates {
   id: number;
@@ -38,25 +37,25 @@ const Home: React.FC = () => {
       document.body.removeChild(tiktokScript);
     };
   }, []);
-  
+
   return (
     <div className="home-container">
       <h1 className="custom-header">¿Conoces a los futuros representantes de la UTA?</h1>
       <h2 className="sub2">Entérate más sobre ellos</h2>
       <div className="split-container">
-        
+
         {/* Columna izquierda */}
         <div className="column">
           <div className="image-row">
             <img src="https://marycruzuta.com/assets/images/logo.png" alt="Logo Mary Cruz" className="side-image" />
-            
+
             <div className="candidate">
               <img src={candidates[0].imagenUrl} alt={candidates[0].name} className="candidate1-image central-image" />
               <h2>{candidates[0].name}</h2>
-              <p><strong>Candidata a Decana</strong> </p>
+              <p><strong>Candidata a Rectora</strong> </p>
               <p>{candidates[0].description}</p>
             </div>
-            
+
             <img src="https://gitlab.com/alexjavier/img_mc/-/raw/main/unidos.PNG" alt="Logo Unidos" className="side-image" />
           </div>
 
@@ -74,18 +73,18 @@ const Home: React.FC = () => {
 
           {/* Facebook embed simplificado para Mary Cruz */}
           <div className="social-media">
-            <iframe 
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61565950187878&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-              width="340" 
-              height="500" 
-              style={{ 
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61565950187878&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+              width="340"
+              height="500"
+              style={{
                 border: 'none',
                 overflow: 'hidden',
                 display: 'block',
                 margin: '20px auto'
               }}
-              scrolling="no" 
-              frameBorder="0" 
+              scrolling="no"
+              frameBorder="0"
               allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
@@ -97,25 +96,26 @@ const Home: React.FC = () => {
           <div className="candidate">
             <img src={candidates2[0].imagenUrl} alt={candidates2[0].name} className="candidate-image" />
             <h2>{candidates2[0].name}</h2>
-            <p><strong>Candidata a Decana</strong> </p>
+            <p><strong>Candidata a Rectora</strong> </p>
             <p>{candidates2[0].description}</p>
           </div>
-          
-          <div className="tiktok-container" dangerouslySetInnerHTML={{ __html: `
+
+          <div className="tiktok-container" dangerouslySetInnerHTML={{
+            __html: `
             <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@saracamacho.estrada/video/7430528760941759750" data-video-id="7430528760941759750" style="max-width: 605px; min-width: 325px;">
               <section>
                 <a target="_blank" title="@saracamacho.estrada" href="https://www.tiktok.com/@saracamacho.estrada?refer=embed">@saracamacho.estrada</a> ¡Vamos juntos por el cambio!
               </section>
             </blockquote>
           ` }}></div>
-          
+
           {/* Facebook embed para Sara Camacho */}
           <div className="social-media">
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/saracamacho.estrada&tabs=timeline&width=340&height=500"
               width="340"
               height="500"
-              style={{ 
+              style={{
                 border: 'none',
                 overflow: 'hidden',
                 display: 'block',
@@ -132,4 +132,4 @@ const Home: React.FC = () => {
     </div>
   );
 };
-export default Home;
+export { Home };

@@ -1,6 +1,9 @@
 @import './_auth.css';
 @import './_candidatos.css';
 @import './_user.css';
+@import './_home.css';
+@import './_sugerencia.css';
+
 
 main {
     margin-top: 15vh;
