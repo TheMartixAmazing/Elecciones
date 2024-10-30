@@ -1,6 +1,7 @@
 @import './_auth.css';
 @import './_candidatos.css';
 @import './_user.css';
+@import './_eventos.css';
 
 main {
     margin-top: 15vh;
