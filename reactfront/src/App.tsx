@@ -43,14 +43,14 @@ function App() {
             <NavBar userId={userId} />
             <main>
                 <Routes>
-                    <Route path="/candidatos" element={<CandidatosPage />} />
-                    <Route path="/login/:state" element={<Login handleOnLogin={onLogin} />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/user/" element={<UserPage handleOnLogout={onLogout} />} />
-                    <Route path="/propuestas" element={<CompShowPropuestas />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/sugerencias" element={<SugerenciaForm />} />
-                    <Route path="/eventos/" element={<NewsPage/>} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/candidatos' element={<CandidatosPage />} />
+                    <Route path='/login/:state' element={<Login handleOnLogin={onLogin} />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/user/' element={<UserPage handleOnLogout={onLogout} />} />
+                    <Route path='/propuestas' element={<CompShowPropuestas />} />
+                    <Route path='/sugerencias' element={<SugerenciaForm />} />
+                    <Route path='/eventos/' element={<NewsPage/>} />
                 </Routes>
             </main>
         </>

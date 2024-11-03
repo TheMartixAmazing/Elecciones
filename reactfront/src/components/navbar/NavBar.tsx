@@ -11,7 +11,7 @@ const NavBar = ({ userId }: UserId) => {
         <nav className={styles.nav}>
             <ul className={styles.navPages}>
                 <li><img src={LogoUta} alt="Logo UTA" className={styles.navLogoUTA} /></li>
-                <NavLink to={'/home'} className={({ isActive }) => isActive ? styles.navPageActive : ''}>
+                <NavLink to={'/'} className={({ isActive }) => isActive ? styles.navPageActive : ''}>
                     <li>Home</li>
                 </NavLink>
                 <NavLink to={'/candidatos'} className={({ isActive }) => isActive ? styles.navPageActive : ''}>
