@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { NavBar } from './components/navBar/NavBar'
+import { NavBar } from './components/navbar/NavBar'
 import { CandidatosPage } from './pages/PageCandidatos'
 import { Login } from './pages/auth/PageLogin'
 import { Register } from './pages/auth/PageRegister'
